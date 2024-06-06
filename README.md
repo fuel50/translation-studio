@@ -1,8 +1,8 @@
+# Translator App
 
-# Translator app
+This project is a translator. It allows users to upload an Excel file, select sheets and columns to translate, and specify target languages for translation. The translations are performed using OpenAI's GPT models. The model is configurable, allowing it to run in parallel to speed up the process. You can set these parameters in the `params.yaml` file.
 
-This project is a translator. It allows users to upload an Excel file, select sheets and columns to translate, and specify target languages for translation. The translations are performed using OpenAI's GPT models.
-The model is configurable. It can run in parallel to speed up and the number of processors to run is configurable. You can set these parameters in `params.yaml` file.
+
 
 ## Table of Contents
 
@@ -12,27 +12,27 @@ The model is configurable. It can run in parallel to speed up and the number of 
 - [FastAPI Backend](#fastapi-backend)
 
 ## Installation
-Do these steps if you already haven't done.
+
 1. Clone the repository:
     ```bash
-    git clone git@github.com:EliasSoltaniAI/skill-translation-api.git
+    git clone git@github.com:fuel50/translation-studio.git 
     cd skill-translation-api
     ```
-For dependencies managment this project uses `pyenv` - to set specific version of python and `poetry` to provide controll on dependencies versions.
 
-Installation of pyenv:
-```
-brew update
-brew install pyenv
-```
-Installation of poetry 
-```
-curl -sSL https://install.python-poetry.org | python3 -
-```
+For dependency management, this project uses `pyenv` to set the specific version of Python and `poetry` to manage dependencies.
 
-After initial installation is done one should choose a version of python to run, currently it's 3.11 and initialise virtual environment with the project dependencies.
+2. Install `pyenv`:
+    ```bash
+    brew update
+    brew install pyenv
+    ```
 
-2. Install the required packages:
+3. Install `poetry`:
+    ```bash
+    curl -sSL https://install.python-poetry.org | python3 -
+    ```
+
+4. After the initial installation, choose a version of Python to run (currently 3.11) and initialize the virtual environment with the project dependencies:
     ```bash
     pyenv install 3.11
     pyenv local 3.11
@@ -42,15 +42,17 @@ After initial installation is done one should choose a version of python to run,
     ```
 
 ## Usage
-You need to add your openai api key. look at the `llm_confi.yaml.example` and create `llm_config.yaml` file with the correct openai API key. See this https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key
 
+1. Add your OpenAI API key by creating a `llm_config.yaml` file from the `llm_config.yaml.example` file. Refer to this guide for obtaining your OpenAI API key: [OpenAI API Key Guide](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key).
 
-Open a terminal and run the code below
-```
-chmod +x run_app.sh && ./run_app.sh
-```
-Open your web browser and go to `http://localhost:8501`.
-or you can run the backend and frontend with the follwoing commands
+2. Open a terminal and run the code below:
+    ```bash
+    chmod +x run_app.sh && ./run_app.sh
+    ```
+    Open your web browser and go to `http://localhost:8501`.
+
+Alternatively, you can run the backend and frontend with the following commands:
+
 1. Start the FastAPI backend:
     ```bash
     uvicorn src.main:app
@@ -63,12 +65,13 @@ or you can run the backend and frontend with the follwoing commands
 
 3. Open your web browser and go to `http://localhost:8501`.
 
-You can find the created output files in the translated_files directory that the app creates.
+The created output files can be found in the `translated_files` directory.
 
 ## Streamlit App
 
 The Streamlit app provides an interactive interface for uploading the Excel file, selecting sheets and columns, and specifying target languages for translation.
 
+![Translator App Demo](docs/translator_app.gif)
 ### Key Features
 
 - **File Upload**: Upload an Excel file containing skill descriptions.
@@ -84,4 +87,5 @@ The FastAPI backend handles the translation requests from the Streamlit app. It 
 ### Key Endpoints
 
 - **POST /translate/**: Handles the translation of skill descriptions.
-- **GET /download/{file_path}**: Serves the translated file for download.
+
+
