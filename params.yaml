@@ -1,0 +1,7 @@
+model:
+  model_name: gpt-4o  # openai models. There are several models available such as gpt-3.5-turbo which is less expensive and faster but might be less accurate. Check the openai documentation for more details. 
+  temperature: 0.0
+
+parallel_processing:
+  num_processes: 6  # Number of parallel processes to run. Default is 6. Maximum number depends on the number of cores available on the machine.
+

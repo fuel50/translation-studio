@@ -1,0 +1,14 @@
+__pycache__/
+
+
+experiments/
+data/
+
+llm_config.yaml
+
+.DS_Store
+
+translated_files/
+
+# log files
+*.log
