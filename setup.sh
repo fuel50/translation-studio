@@ -10,8 +10,9 @@ curl https://pyenv.run | bash
 pyenv install 3.11.0
 pyenv local 3.11.0
 
-echo "Installing Poetry..."
+echo "Trying to install Poetry..."
 curl -sSL https://install.python-poetry.org | python3 -
+export PATH="$HOME/.local/bin:$PATH"
 
 echo "Installing dependencies..."
 poetry env use 3.11.0
